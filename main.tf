@@ -1,13 +1,5 @@
 terraform {
 
-
-  cloud {
-    organization = "peter-working-org"
-
-    workspaces {
-      name = "testdown"
-    }
-  }
   
   required_providers {
     datadog = {
