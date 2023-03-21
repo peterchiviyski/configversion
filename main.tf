@@ -1,19 +1,18 @@
-terraform {
 
-  
-  required_providers {
-    datadog = {
-      source  = "datadog/datadog"
-      version = "~> 3.20.0"
-    }
-    helm = {
-      source  = "hashicorp/helm"
-      version = "~> 2.8.0"
-    }
-    kubernetes = {
-      source  = "hashicorp/kubernetes"
-      version = "~> 2.16.1"
-    }
+provider "aws" { 
+region = "us-east-1" 
+access_key = var.aws_access_key 
+secret_key = var.aws_secret_key 
+}
+
+# Create a VPC
+resource "aws_vpc" "example" {
+  cidr_block           = "10.0.0.0/16"
+  instance_tenancy     = "default"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+
+  tags = {
+    Name = "Peshotest99"
   }
-  required_version = ">= 1.1.0"
 }
